@@ -9,14 +9,11 @@ RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/so
 RUN apt-get update
 RUN apt-get install -y google-chrome-stable
 
-# install Firefox 46
+# install Firefox 55
 RUN apt-get install -y wget tar
-RUN wget -O /usr/local/firefox-46.0.1.tar.bz2 http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/46.0.1/linux-x86_64/en-US/firefox-46.0.1.tar.bz2
-RUN tar xvjf /usr/local/firefox-46.0.1.tar.bz2 -C /usr/local
+RUN wget -O /usr/local/firefox-55.0.2.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/55.0.2/linux-x86_64/fr/firefox-55.0.2.tar.bz2
+RUN tar xvjf /usr/local/firefox-55.0.2.tar.bz2 -C /usr/local
 RUN ln -s /usr/local/firefox/firefox /usr/bin/firefox
-
-# install xvfb
-RUN apt-get install -y xvfb;
 
 # install java; needed by selenium
 RUN apt-get install -y default-jre
